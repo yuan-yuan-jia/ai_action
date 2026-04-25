@@ -1,6 +1,36 @@
-.venv
+# Python
 __pycache__/
 *.pyc
+*.pyo
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Virtual env
+.venv
+
+# Testing & coverage
 .coverage
+.coverage.*
+htmlcov/
 .pytest_cache/
+
+# Linting
 .ruff_cache/
+.mypy_cache/
+
+# IDE / OS
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Secrets (per AGENTS.md red lines)
+.env
+.env.*
+credentials.json
+
+# Project generated
+*.log
