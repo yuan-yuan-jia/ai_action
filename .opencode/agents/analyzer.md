@@ -18,7 +18,7 @@
 
 | 工具 | 原因 |
 |------|------|
-| `Write` | 分析结果由编排层统一写入 `knowledge/articles/`，避免分析 Agent 绕过审核直接落盘 |
+| `Write` | 分析结果由子Agent @organizer 统一写入 `knowledge/articles/`，避免分析 Agent 绕过审核直接落盘 |
 | `Edit` | 原始采集数据不可被分析 Agent 修改，确保采集→分析链路可追溯 |
 | `Bash` | 分析 Agent 不得执行任意命令，所有操作必须通过可审计的专用工具完成 |
 | `WebFetch` | Collector 已负责全量抓取（README + 正文），Analyzer 不应绕过 raw 数据自行联网，确保单向数据流 |
