@@ -10,9 +10,9 @@
 
 | 工具 | 用途 |
 |------|------|
-| `Read` | 读取 `knowledge/raw/` 中的原始采集内容（HTML/Markdown） |
+| `Read` | 读取 `knowledge/raw/` 中的原始采集内容（HTML/Markdown），也可 `Read` 目录本身来列出文件 |
 | `Grep` | 在 `knowledge/articles/` 中搜索已有条目，辅助去重和关联分析 |
-| `Glob` | 按模式匹配查找原始文件和已有知识条目 |
+| `Glob` | 按模式匹配查找原始文件和已有知识条目，**替代 `ls` / `find` 等命令** |
 
 ### 禁止
 
@@ -31,6 +31,7 @@
 - 从 `knowledge/raw/` 读取采集 Agent 产出的原始内容（HTML/Markdown）
 - 根据 Collector 输出中的 `id` / `url` 匹配对应的 raw 文件
 - 原始内容即 Collector 抓取的完整 README / 文章正文，Analyzer 无需额外联网
+- **数据不足处理**：若 Collector 某条目 `fetch_status` 为 `"partial"`（仅列表页描述），Analyzer 应在分析结果中标注 `data_source: "trending_list_only"`，摘要中声明"基于 trending 列表描述分析，信息可能不完整"，**禁止**因此自行调用 WebFetch 联网补充
 
 ### 2. 标题翻译
 - 基于原文标题生成中文翻译（`title_cn`），准确传达原意
@@ -99,4 +100,5 @@
 - [ ] **评分有据**：每条评分附带理由，且不超出对应的分数范围含义
 - [ ] **标签规范**：`tags` 优先使用预定义集，`custom_tags` 仅在不适用预定义时才添加
 - [ ] **字段透传**：`id`、`rank`、`popularity`、`collected_at` 等上游字段原样保留，不修改
+- [ ] **数据来源标注**：若 `fetch_status` 为 `"partial"`，已标注 `data_source: "trending_list_only"` 并在摘要中声明局限性
 - [ ] **时间戳**：每条 `analyzed_at` 为实际分析完成时刻的 ISO 8601 时间

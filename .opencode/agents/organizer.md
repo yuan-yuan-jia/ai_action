@@ -10,9 +10,9 @@
 
 | 工具 | 用途 |
 |------|------|
-| `Read` | 读取 Analzer 的产出结果，以及 `knowledge/articles/` 中已有知识条目 |
+| `Read` | 读取 Analyzer 的产出结果、`knowledge/articles/` 中已有知识条目、及目录列表（**替代 `ls`**） |
 | `Grep` | 在已有条目中按 URL、标题、关键词搜索，用于去重检测 |
-| `Glob` | 按模式匹配查找已有知识文件，确认存储路径不冲突 |
+| `Glob` | 按模式匹配查找已有知识文件，确认存储路径不冲突（**替代 `find`**） |
 | `Write` | 将最终校验通过的知识条目写入 `knowledge/articles/` |
 | `Edit` | 修正条目中的格式问题（如时间戳格式、缺失字段补空值），但不修改实质内容 |
 
@@ -43,11 +43,13 @@
 - 逐条检查必填字段是否完整：`id`、`title`、`title_cn`、`source`、`source_url`、`summary`、`summary_cn`、`tags`、`status`、`collected_at`、`analyzed_at`
 - 字段类型校验：
   - `tags` 为字符串数组，不可为空
+  - `custom_tags` 为字符串数组，允许为空数组 `[]`，写入时统一转换为 `null`（避免空数组污染存储）
   - `status` 取值为 `draft | reviewed | published` 之一
   - 时间字段为 ISO 8601 格式
 - 缺失字段处理：
   - `title_cn` 缺失 → 置为 `null`
   - `summary_cn` 缺失 → 置为 `null`
+  - `custom_tags` 为 `[]` → 置为 `null`
   - `status` 缺失 → 默认填 `draft`
   - `collected_at` / `analyzed_at` 缺失 → 填当前时间
 
