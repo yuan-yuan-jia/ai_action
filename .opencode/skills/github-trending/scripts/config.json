@@ -1,0 +1,20 @@
+{
+  "trending_url": "https://github.com/trending?since=weekly",
+  "filter_topics": [
+    "ai", "llm", "agent", "ml", "machine-learning", "deep-learning",
+    "artificial-intelligence", "chatgpt", "gpt", "rag",
+    "ai-agent", "agent-framework", "multi-agent",
+    "os", "kernel", "operating-system",
+    "rust", "rust-lang"
+  ],
+  "fallback_keywords": [
+    "ai", "artificial intelligence", "machine learning", "deep learning",
+    "llm", "large language model", "agent", "chatbot", "gpt",
+    "transformer", "neural network", "natural language", "nlp",
+    "rag", "retrieval augmented", "operating system", "kernel", "os",
+    "rust"
+  ],
+  "timeout_seconds": 60,
+  "max_stars_fetches": 30,
+  "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+}
