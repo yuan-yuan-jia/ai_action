@@ -1,0 +1,58 @@
+# RSS 数据源配置文件
+# 每个源包含 name / url / category / enabled 字段
+# enabled: true 的源才会被采集器抓取
+
+sources:
+  # ── 综合技术 ──
+  - name: "Hacker News Best (AI)"
+    url: "https://hnrss.org/best?q=ai+OR+llm+OR+agent+OR+machine+learning+OR+rust+OR+os"
+    category: "综合技术"
+    enabled: false  # 量大，默认关闭
+
+  - name: "Lobsters AI/ML"
+    url: "https://lobste.rs/t/ai.rss"
+    category: "综合技术"
+    enabled: true
+
+  - name: "Lobsters Rust"
+    url: "https://lobste.rs/t/rust.rss"
+    category: "综合技术"
+    enabled: true
+
+  - name: "Lobsters OS"
+    url: "https://lobste.rs/t/osdev.rss"
+    category: "综合技术"
+    enabled: true
+
+  # ── AI 研究 ──
+  - name: "arXiv cs.AI"
+    url: "https://arxiv.org/rss/cs.AI"
+    category: "AI 研究"
+    enabled: true
+
+  # ── 公司博客 ──
+  - name: "OpenAI Blog"
+    url: "https://openai.com/blog/rss.xml"
+    category: "公司博客"
+    enabled: true
+
+  - name: "Anthropic Research"
+    url: "https://www.anthropic.com/research/feed"
+    category: "公司博客"
+    enabled: true
+
+  - name: "Hugging Face Blog"
+    url: "https://huggingface.co/blog/feed.xml"
+    category: "公司博客"
+    enabled: true
+
+  # ── 中文社区（需确认 RSS 可用性） ──
+  - name: "机器之心"
+    url: "https://rss.jiqizhixin.com/"
+    category: "中文社区"
+    enabled: false  # 需确认 RSS 可用性
+
+  - name: "量子位"
+    url: "https://www.qbitai.com/rss"
+    category: "中文社区"
+    enabled: false  # 需确认 RSS 可用性
